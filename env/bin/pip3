@@ -1,4 +1,4 @@
-#!/home/kevon/Documents/moringa_school/Django/instagram/env/bin/python3
+#!/home/kevon/Documents/moringa_school/Django/instagram/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
