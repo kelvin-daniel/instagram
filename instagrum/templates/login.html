@@ -16,7 +16,7 @@
                     <img src="{% static 'img/insta5.png' %}" alt="" width="40%" class="D-block mx-auto">
                 </div>
                 <div class="card-body mb-3 mr-3 ml-3">
-                    <form action="" method="post" novalidate>
+                    <form class="ml-5" action="" method="post" novalidate>
                         {% csrf_token%}
                         {{ form|crispy}}
                         {% if form.errors %}
@@ -26,7 +26,7 @@
                           </div>
                         </div>
                         {% endif %}
-                        <button type="submit" value='login' class="btn mt-2 btn-primary btn-sm D-block mx-auto"> Log In</button>
+                        <button type="submit" value='login' class="btn float-left mt-2 btn-primary btn-sm D-block mx-auto"> Log In</button>
                     </form>
                 </div>
                 <a href="" class="D-block mx-auto mb-3">Forgot password? </a>

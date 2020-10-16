@@ -12,12 +12,12 @@
                     <img src="{% static 'img/insta5.png' %}" alt="" width="40%" class="D-block mx-auto">
                 </div>
                 <div class="card-body mb-3 mr-3 ml-3">
-                    <p class="text-center">Sign up to see photos and videos from your friends.
-                    </p>
-                    <form action="" method="post" novalidate>
+                    <h5 class="text-center font-weight-bolder" style="color: grey;">Sign up to see photos and videos from your friends.
+                    </h5>
+                    <form class="ml-5" action="" method="post" novalidate>
                         {% csrf_token%}
                         {{ form|crispy}}
-                        <button  name='action' type="submit" class="btn btn-primary btn-sm"> Sign up</button>
+                        <button  name='action' type="submit" class="btn mt-2 btn-primary btn-sm"> Sign up</button>
                     </form>
                 </div>
                 <p class="mr-4 ml-4 mb-2 text-center">By signing up, you agree to our Terms , Data Policy and Cookies
@@ -25,11 +25,11 @@
             </div>
             <div class="card mt-2">
                 <div class="card-body mt-3 mb-2 mr-3 ml-3">
-                    <p>Have an account? <a href="{% url 'login' %}">Log in</a></p>
+                    <h5 class="text-center">Have an account? <a href="{% url 'login' %}">Log in</a></h5>
                 </div>
             </div>
             <div container>
-                <p class="text-center mt-4">Get the app</p>
+                <h6 class="text-center mt-4">Get the app</h6>
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
