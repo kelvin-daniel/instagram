@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import user
-from django.db.models.signals import post_save, post_delete
+from django.db.models.signals import post_save
 from django.urls import reverse
 from django.utils.text import slugify
 
@@ -83,33 +83,5 @@ class Stream(models.Model):
     		stream = Stream(post=post, user=follower.follower, date=post.posted, following=user)
     		stream.save()
 
-class Likes(models.Model):
-	user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_like')
-	post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='post_like')
-
-	def user_liked_post(sender, instance, *args, **kwargs):
-		like = instance
-		post = like.post
-		sender = like.user
-		notify = Notification(post=post, sender=sender, user=post.user, notification_type=1)
-		notify.save()
-
-	def user_unlike_post(sender, instance, *args, **kwargs):
-		like = instance
-		post = like.post
-		sender = like.user
-
-		notify = Notification.objects.filter(post=post, sender=sender, notification_type=1)
-		notify.delete()
-
-
-#Stream
+#streams everytime a post is made
 post_save.connect(Stream.add_post, sender=Post)
-
-#Likes
-post_save.connect(Likes.user_liked_post, sender=Likes)
-post_delete.connect(Likes.user_unlike_post, sender=Likes)
-
-#Follow
-post_save.connect(Follow.user_follow, sender=Follow)
-post_delete.connect(Follow.user_unfollow, sender=Follow)
