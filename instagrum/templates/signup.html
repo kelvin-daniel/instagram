@@ -17,13 +17,7 @@
                     <form class="ml-5" action="" method="post" novalidate>
                         {% csrf_token%}
                         {{ form|crispy}}
-                        {% if form.errors %}
-                        <div class="row">
-                          <div class="col s12">
-                            <span style="color: rgb(240, 66, 66); font-weight: bold;">Password did not match. Try again.</span>
-                          </div>
-                        </div>
-                        {% endif %}
+                    
                         <button  name='action' type="submit" class="btn mt-2 btn-primary btn-sm"> Sign up</button>
                     </form>
                 </div>
