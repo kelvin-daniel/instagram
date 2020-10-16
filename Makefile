@@ -14,7 +14,7 @@ collectstatic:
 	./manage.py collectstatic
 
 migrations:
-	./manage.py makemigrations $(app)
+	./manage.py makemigrations 
 
 migrate:
 	./manage.py migrate
