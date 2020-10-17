@@ -24,6 +24,17 @@ def index(request):
 		
         return render(request, 'index.html',{'post_items': post_items})
 
+def PostDetails(request, post_id):
+	post = get_object_or_404(Post, id=post_id)
+
+	template = loader.get_template('post_detail.html')
+
+	context = {
+		'post':post,
+	}
+
+	return HttpResponse(template.render(context, request))
+
 @login_required
 def NewPost(request):
 	user = request.user.id
@@ -56,3 +67,4 @@ def NewPost(request):
 	}
 
 	return render(request, 'newpost.html',{'form':form})
+
