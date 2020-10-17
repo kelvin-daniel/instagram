@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 
-from post.models import Stream, Post, Tag
+from post.models import Stream, Post, Tag, Likes
 from post.forms import NewPostForm
 
 from django.contrib.auth.decorators import login_required
