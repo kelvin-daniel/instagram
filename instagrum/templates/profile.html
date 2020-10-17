@@ -25,9 +25,9 @@
     {% if user.is_authenticated and user != profile.user %}
       <div class="media-right">
         {% if follow_status == True %}
-          <a href="{% url 'follow' profile.user 0 %}" class="button is-danger">Unfollow</a>
+          <a class="button is-danger">Unfollow</a>
         {% else %}
-          <a href="{% url 'follow' profile.user 1 %}" class="button is-success">Follow</a>
+          <a  class="button is-success">Follow</a>
         {% endif  %}
       </div>
     {% endif %}
