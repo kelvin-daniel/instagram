@@ -14,10 +14,82 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>Instagram</title>
 </head>
 <body class="reg">
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="">
+        <img src="{% static 'img/instagram_black.png' %}" width="64" height="64">
+      </a>
+  
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a href="{% url 'index' %}" class="navbar-item">
+          <i class="material-icons">home</i>
+          Home
+        </a>
+  
+        <a class="navbar-item">
+          <i class="material-icons">explore</i>
+          Explore
+        </a>
+  
+        <a class="navbar-item">
+          <i class="material-icons">notifications</i>
+          Notifications
+        </a>
+  
+        <a class="navbar-item">
+          <i class="material-icons">inbox</i>
+          Inbox
+        </a>
+  
+        <a class="navbar-item">
+          <i class="material-icons">face</i>
+          Profile - <strong>{{ request.user }}</strong>
+        </a>
+  
+          <a class="navbar-item">
+          <i style="color: green;" class="material-icons">perm_media</i>
+           <strong>New Post</strong>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Settings
+          </a>
+  
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              Change password
+            </a>
+            <a class="navbar-item">
+              Contact
+            </a>
+            <a class="navbar-item">
+              Report an issue
+            </a>
+            <hr class="navbar-divider">
+            <a href="{% url 'logout' %}" class="navbar-item">
+              Log out
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
 {% block content %}
 
 {% endblock %}
