@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% load static %}
-{% load humanize %}
 
 {% block content %}
 
@@ -47,20 +46,20 @@
 
     {% if favorited is True %}
     <div class="media-right">
-      <a href="{% url 'postfavorite' post.id %}"><i class="material-icons has-text-danger">save_alt</i></a>
+      <a><i class="material-icons has-text-danger">save_alt</i></a>
       <p>Remove Post</p> 
     </div>
     {% else %}
 
     <div class="media-right">
-      <a href="{% url 'postfavorite' post.id %}"><i class="material-icons has-text-success">save_alt</i></a>
+      <a><i class="material-icons has-text-success">save_alt</i></a>
       <p>Save Post</p> 
     </div>
 
     {% endif %}
 
     <div class="media-right">
-      <a href="{% url 'postlike' post.id %}"><i class="material-icons has-text-danger">favorite</i></a>
+      <a><i class="material-icons has-text-danger">favorite</i></a>
       <p>{{ post.likes }} Likes</p>  
     </div>
     
@@ -95,7 +94,7 @@
         <br>
           {{ comment.body }}
         <br>
-        <strong><small>{{ comment.date|naturaltime }}</small></strong>
+        <strong><small>{{ comment.date}}</small></strong>
       </p>
     </div>
 

@@ -2,23 +2,18 @@
 
 {% load static %}
 
-
+{% block content %}
 {% block banner %}
 <section class="hero is-primary">
   <div class="hero-body">
     <div class="container">
-      <h1 style="font-size: 90px" class="title">
+      <h4 class="title text-dark">
         #{{ tag.title }}
-      </h1>
+      </h4>
     </div>
   </div>
 </section>
 {% endblock %}
-
-
-
-{% block content %}
-
       <div class="columns is-mobile is-multiline is-centered">
       
 
