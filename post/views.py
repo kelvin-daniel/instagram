@@ -95,6 +95,7 @@ def like(request, post_id):
 		current_likes = current_likes + 1
 
 	else:
+        #creating unlikes by deleting like
 		Likes.objects.filter(user=user, post=post).delete()
 		current_likes = current_likes - 1
 
