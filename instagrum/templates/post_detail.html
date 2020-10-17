@@ -52,7 +52,7 @@
     {% else %}
 
     <div class="media-right">
-      <a><i class="material-icons has-text-success">save_alt</i></a>
+      <a href="{% url 'postfavorite' post.id %}"><i class="material-icons has-text-success">save_alt</i></a>
       <p>Save Post</p> 
     </div>
 
