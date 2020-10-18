@@ -5,6 +5,8 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadReque
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from direct.models import Message
+from django.db.models import Q
+from django.core.paginator import Paginator
 
 # Create your views here.
 
