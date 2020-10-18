@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 from django.urls import reverse
 from django.utils.text import slugify
 from notifications.models import Notification
@@ -104,3 +104,7 @@ class Likes(models.Model):
 
 #streams everytime a post is made
 post_save.connect(Stream.add_post, sender=Post)
+
+#for Likes
+post_save.connect(Likes.user_liked_post, sender=Likes)
+post_delete.connect(Likes.user_unlike_post, sender=Likes)
