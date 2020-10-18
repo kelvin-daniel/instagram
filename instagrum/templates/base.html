@@ -48,13 +48,19 @@
         <a class="navbar-item">
           <i class="material-icons">notifications</i>
           Notifications
+          {% if count_notifications %}
+            <span class="badge">{{ count_notifications }}</span>
+          {% endif %}
         </a>
   
-        <a class="navbar-item">
+        <a href="{% url 'inbox' %}" class="navbar-item">
           <i class="material-icons">inbox</i>
           Inbox
+          {% if directs_count %}
+          <span class="badge">{{ directs_count }}</span>
+          {% endif %}
         </a>
-  
+
         <a href="{% url 'profile' request.user%}" class="navbar-item">
           <i class="material-icons">face</i>
           Profile - <strong>{{ request.user }}</strong>

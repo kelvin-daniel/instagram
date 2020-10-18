@@ -39,9 +39,9 @@
 
       <div class="content">
         {% if message.unread %}
-        <p style="font-weight: bold; color: red;">
-          <i class="material-icons">mark_chat_unread</i> {{ message.unread }}
-        </p>
+        <small>
+          <i class="material-icons text-danger">fiber_manual_record</i> {{ message.unread }}
+        </small>
         {% endif %}        
       </div>
 
@@ -54,7 +54,7 @@
   </ul>
   </aside>
 <br>
-<a class="button is-success">New message</a>
+<a href="{% url 'usersearch' %}" class="button is-success">New message</a>
 
 </div>
 
