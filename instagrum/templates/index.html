@@ -31,7 +31,7 @@
                 <a href="{% url 'profile' post_item.user %}"><p class="title is-4">{{ post_item.user.profile.first_name }} {{ post_item.user.profile.last_name }}</p></a>
               {% else %}
                 <a href="{% url 'profile' post_item.user %}"><p class="title is-4">Unknown</p></a>
-              {% endif %}
+              {% endif %} 
       
               <p class="subtitle is-6">@{{ post_item.user.username }}</p>
 
