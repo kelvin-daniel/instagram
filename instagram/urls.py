@@ -22,11 +22,11 @@ from authy.views import UserProfile, follow
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('post.urls')),
+    path('direct/', include('direct.urls')),
     path('user/', include('authy.urls')),
     path('<username>/', UserProfile, name='profile'),
     path('<username>/saved', UserProfile, name='profilefavorites'),
     path('<username>/follow/<option>', follow, name='follow'),
-    path('direct/', include('direct.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

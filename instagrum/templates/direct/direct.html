@@ -54,7 +54,7 @@
   </ul>
   </aside>
 <br>
-<a href="{% url 'usersearch' %}" class="button is-success">New message</a>
+<a class="button is-success">New message</a>
 
 </div>
 
@@ -83,7 +83,7 @@
 </div>
 
 
-<form role="form" method="POST" action="{% url 'send_direct' %}">
+<form role="form" method="POST">
   {% csrf_token %}
 <article class="media">
   <figure class="media-left">
