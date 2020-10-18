@@ -74,6 +74,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'direct.views.checkDirects',
+                'notifications.views.CountNotifications'
             ],
         },
     },
