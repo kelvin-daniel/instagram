@@ -38,7 +38,7 @@
             {{ post_item.caption }}
             <p>{% for tag in post_item.tags.all %}<a href="{{ tag.get_absolute_url }}">#{{ tag }}</a>{% endfor %}</p>
             <br>
-            <strong><small>{{ post_item.posted }}</small></strong>
+            <strong><small>{{ post_item.posted|naturaltime }}</small></strong>
             </div>
 
             <div class="media-right">
