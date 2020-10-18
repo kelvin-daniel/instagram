@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 
@@ -13,7 +14,7 @@
 
 {% if notification.notification_type == 2 %}
       <div class="notification">
-      <a href="{% url 'delete-notification' notification.id %}" class="delete"></a>
+      <a class="delete"></a>
 
       <article class="media">
   <figure class="media-left">
@@ -48,7 +49,7 @@
 
 {% if notification.notification_type == 3 %}
       <div class="notification">
-      <a href="{% url 'delete-notification' notification.id %}" class="delete"></a>
+      <a class="delete"></a>
 
       <article class="media">
   <figure class="media-left">
@@ -65,7 +66,7 @@
         <strong>{{ notification.sender.profile.first_name }} {{ notification.sender.profile.last_name }}</strong> <small>@{{ notification.sender.username }}</small> 
         <br>
         <p><i class="material-icons">person_add</i> Followed you!</p>
-        <strong><small>{{ notification.date }}</small></strong>
+        <strong><small>{{ notification.date|naturaltime }}</small></strong>
     </div>
   </div>
 
@@ -78,7 +79,7 @@
 <!-- FOR LIKE --->
 {% if notification.notification_type == 1 %}
       <div class="notification">
-      <a href="{% url 'delete-notification' notification.id %}" class="delete"></a>
+      <a  class="delete"></a>
 
       <article class="media">
   <figure class="media-left">

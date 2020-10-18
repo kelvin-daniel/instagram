@@ -105,6 +105,10 @@ class Likes(models.Model):
 #streams everytime a post is made
 post_save.connect(Stream.add_post, sender=Post)
 
+#Follow
+post_save.connect(Follow.user_follow, sender=Follow)
+post_delete.connect(Follow.user_unfollow, sender=Follow)
+
 #for Likes
 post_save.connect(Likes.user_liked_post, sender=Likes)
 post_delete.connect(Likes.user_unlike_post, sender=Likes)
