@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'authy',
     'bootstrap',
     'comment',
-    'post', 
+    'post',
+    'direct', 
 ]
 
 MIDDLEWARE = [
