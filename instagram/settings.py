@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'comment',
     'post',
     'direct', 
+    'notifications',
 ]
 
 MIDDLEWARE = [
