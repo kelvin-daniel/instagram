@@ -158,18 +158,19 @@ def follow(request, username, option):
 	following = get_object_or_404(User, username=username)
 
 	try:
-		f, created = Follow.objects.get_or_create(follower=request.user, following=following)
+		f, created = Follow.objects.get_or_create(follower=user, following=following)
 
 		if int(option) == 0:
 			f.delete()
-			Stream.objects.filter(following=following, user=request.user).all().delete()
+			Stream.objects.filter(following=following, user=user).all().delete()
 		else:
 			 posts = Post.objects.all().filter(user=following)[:25]
 
+			#database transaction using atomic
 			 with transaction.atomic():
-				 #creates multiple stream objects for the posts
+				 #creates multiple objects for the posts when we follow a user
 			 	for post in posts:
-			 		stream = Stream(post=post, user=request.user, date=post.posted, following=following)
+			 		stream = Stream(post=post, user=user, date=post.posted, following=following)
 			 		stream.save()
 
 		return HttpResponseRedirect(reverse('profile', args=[username]))

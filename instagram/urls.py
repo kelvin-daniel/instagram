@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from authy.views import UserProfile, UserProfileFavorites, follow
+from authy.views import UserProfile, follow
 
 urlpatterns = [
     path('admin/', admin.site.urls),
