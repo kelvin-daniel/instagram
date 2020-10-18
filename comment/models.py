@@ -1,7 +1,6 @@
 from django.db import models
 from post.models import Post
 from django.contrib.auth.models import User 
-from notifications.models import Notification
 
 from django.db.models.signals import post_save, post_delete
 
