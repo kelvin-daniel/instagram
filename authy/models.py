@@ -8,7 +8,7 @@ from django.conf import settings
 import os
 
 def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    # file will be uploaded to MEDIA_ROOT in this format /user_id/filename
     profile_pic_name = 'user_{0}/profile.jpg'.format(instance.user.id)
     full_path = os.path.join(settings.MEDIA_ROOT, profile_pic_name)
 
@@ -28,6 +28,19 @@ class Profile(models.Model):
 	created = models.DateField(auto_now_add=True)
 	favorites = models.ManyToManyField(Post)
 	picture = models.ImageField(upload_to='profile_pictures', blank=True, null=True, verbose_name='Picture')
+    
+	#to resize images on the server side
+	def save(self, *args, **kwargs):
+		super().save(*args, **kwargs)
+		SIZE = 250, 250
+
+		if self.picture:
+			pic = Image.open(self.picture.path)
+			pic.thumbnail(SIZE, Image.LANCZOS)
+			pic.save(self.picture.path)
+
+	def __str__(self):
+		return self.user.username
 
 def create_user_profile(sender, instance, created, **kwargs):
 	if created:
