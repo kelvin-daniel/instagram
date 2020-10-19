@@ -23,7 +23,7 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="">
-        <img href="{% url 'index' %}" src="{% static 'img/instagram_black.png' %}" width="64" height="64">
+        <img src="{% static 'img/instagram_black.png' %}" width="64" height="64">
       </a>
   
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -60,8 +60,8 @@
           <span class="badge">{{ directs_count }}</span>
           {% endif %}
         </a>
-
-        <a href="{% url 'profile' request.user%}" class="navbar-item">
+  
+        <a href="{% url 'profile' request.user %}" class="navbar-item">
           <i class="material-icons">face</i>
           Profile - <strong>{{ request.user }}</strong>
         </a>
