@@ -51,14 +51,14 @@
                 <div class="col-md-3 ml-2">
                   <figure class="image is-48x48">
                     {% if profile.picture %}
-                      <img class="rounded-circle account-img" src="{{ profile.picture.url }}">
+                      <img class="rounded-circle account-img" src="{{ request.user.profile.picture.url }}">
                     {% else %}
                       <img class="rounded-circle account-img" src="https://bulma.io/images/placeholders/256x256.png">
                     {% endif %}
                   </figure>
                 </div>
                     <a href="{% url 'profile' request.user %}">
-                      <p class="subtitle is-6 pt-3">{{ profile.user }}</p></a> 
+                      <p class="subtitle is-6 pt-3">{{ profile.request.user }}</p></a> 
                       <br>
                     <span class=" inname">
                       {% if profile.first_name %}{{ profile.first_name }} {{ profile.last_name }} {% endif %}
@@ -74,7 +74,7 @@
                                 <div class="float-left col-md-2 mr-3 mt-1 mb-2">
                                   <figure class="float-left image is-48x48">
                                     {% if profile.picture %}
-                                      <img class="rounded-circle account-img" src="{{ profile.picture.url }}">
+                                      <img class="rounded-circle account-img" src="{{ user.profile.picture.url }}">
                                     {% else %}
                                       <img class="rounded-circle account-img" src="https://bulma.io/images/placeholders/256x256.png">
                                     {% endif %}

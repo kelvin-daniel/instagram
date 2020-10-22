@@ -22,7 +22,7 @@
 </head>
 <body class="reg">
 
-  <div class="navbar fixed-top bg-white mb-5">
+  <!-- <div class="navbar fixed-top bg-white mb-5">
     <nav class="container">
       <div class="navbar-brand mr-5">
         <a class="navbar-item" href="">
@@ -39,9 +39,9 @@
       <form class="mb-0 h1 ml-auto mr-auto" id="searchform" action="{% url 'usersearch' %}" >
         <input class="form-control text-center d-none d-md-block" name="q" autocapitalize="none" type="text" placeholder="Search" results="0" value="{{ request.GET.q }}">
         <i class="spinner "></i>
-    </form>
+    </form> -->
     
-      <div id="navbarBasicExample" class="navbar-menu">
+      <!-- <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
           <a href="{% url 'index' %}" class="navbar-item">
             <i class="fas fa-home"></i>
@@ -71,7 +71,7 @@
     
             <a href="{% url 'newpost' %}" class="navbar-item">
               <i class="fas fa-plus-circle"></i>
-          </a>
+          </a> -->
     
           <!-- <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
@@ -94,11 +94,11 @@
               </a>
             </div>
           </div> --> 
-        </div>
+        <!-- </div>
     
       </div>
     </nav>
-  </div>
+  </div> -->
   
 {% include 'navbar.html' %}
 {% block content %}
