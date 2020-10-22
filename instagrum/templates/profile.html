@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container mt-5">
@@ -44,15 +45,17 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade bd-example-modal-sm" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
+        <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <a class="D-block mx-auto" href="">Change Password</a>
+                      <ul class="list-group">
+                        <li><a class="list-group-item text-center" href="">Change Password</a></li>
                         <hr>
-                        <a class="D-block mx-auto" href="{% url 'logout' %}">Log Out</a>
+                        <li><a class="list-group-item text-center" href="{% url 'logout' %}">Log Out</a></li>
                         <hr>
-                        <a class="D-block mx-auto" href="" data-dismiss="modal">Close</a>
+                        <li><a class="list-group-item text-center" href="" data-dismiss="modal">Close</a></li>
+                      </ul>
                     </div>
 
                 </div>
