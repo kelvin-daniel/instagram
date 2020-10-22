@@ -42,7 +42,7 @@
       <div class="content">
         <a href="{% url 'profile' user.username %}">
           <p>
-            <small>@{{ user.username }}</small>
+            <strong>{{ user.profile.first_name }} {{ user.profile.last_name }}</strong><small>@{{ user.username }}</small>
           </p>
         </a>
         <a href="{% url 'newconversation' user.username %}" class="btn btn-info btn-sm">DM</a>

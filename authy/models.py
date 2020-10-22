@@ -8,7 +8,7 @@ from django.conf import settings
 import os
 
 def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT in this format /user_id/filename
+    # file will be uploaded to MEDIA_ROOT in this format: /user_id/filename
     profile_pic_name = 'user_{0}/profile.jpg'.format(instance.user.id)
     full_path = os.path.join(settings.MEDIA_ROOT, profile_pic_name)
 

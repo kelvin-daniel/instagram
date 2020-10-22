@@ -45,6 +45,9 @@ a:hover {
     }
 
 }
+#dirs{
+    display: none;
+}
 
 h1{
     color:green;

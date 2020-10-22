@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="columns is-mobile has-text-centered">
+<div class="container is-mobile has-text-centered">
   <div class="column is-half is-offset-one-quarter">
 
     <div class="card">
@@ -12,41 +12,38 @@
 
     <form method="post" action="" enctype="multipart/form-data" role="form">
     {% csrf_token %}
-    <h3 class="title is-1">New Post</h3>
+    <h3 class="title is-4">New Post</h3><hr>
 
             <div class="field">
               <p class="control has-icons-left">
-              <label class="label is-medium">Chose your picture</label>
+              <label class="label is-7">Chose your picture</label>
                 {{ form.picture }}
                 <span class="icon is-small is-left">
-            <i class="fas fa-lock"></i>
           </span>
         </p>
           </div>
 
             <div class="field">
               <p class="control has-icons-left">
-              <label class="label is-medium">Caption</label>
+              <label class="label is-7">Caption</label>
                 {{ form.caption }}
                 <span class="icon is-small is-left">
-            <i class="fas fa-lock"></i>
           </span>
         </p>
           </div>
 
             <div class="field">
               <p class="control has-icons-left">
-              <label class="label is-medium">Tags (add tags, separeted by commas)</label>
+              <label class="label is-7">Tags (add tags, separeted by commas)</label>
                 {{ form.tags }}
                 <span class="icon is-small is-left">
-            <i class="fas fa-lock"></i>
           </span>
         </p>
           </div>
 
       <div class="field">
       <p class="control">
-        <button type="submit" name="action" class="button is-success">
+        <button type="submit" name="action" class="btn btn-sm btn-info">
           Create
         </button>
       </p>
