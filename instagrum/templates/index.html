@@ -71,8 +71,8 @@
                         {% for user in users %}
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-2 mr-3 mt-1 mb-2">
-                                  <figure class="media-left image is-48x48">
+                                <div class="float-left col-md-2 mr-3 mt-1 mb-2">
+                                  <figure class="float-left image is-48x48">
                                     {% if profile.picture %}
                                       <img class="rounded-circle account-img" src="{{ profile.picture.url }}">
                                     {% else %}
@@ -91,12 +91,12 @@
                         </div>
 
                         {% endfor %}
-{% else %}
-<p class="text-center">
-  Start following other <a href="search">users</a> to see their posts. </br> </br>
-  Suggested user: <a href="/user/tay">tay</a>
-<p>
-{% endif %}
+                        {% else %}
+                        <p class="text-center">
+                          Start following other <a href="search">users</a> to see their posts. </br> </br>
+                          Suggested user: <a href="/user/tay">tay</a>
+                        <p>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-md-2"></div>
