@@ -40,7 +40,7 @@
     </div>
     <div class="media-content">
       <div class="content">
-        <a href="{% url 'profile' request.user %}">
+        <a href="{% url 'profile' user.username %}">
           <p>
             <strong>{{ user.profile.first_name }} {{ user.profile.last_name }}</strong><small>@{{ user.username }}</small>
           </p>
