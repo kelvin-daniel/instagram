@@ -12,96 +12,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>Instagram</title>
+    <link rel="icon" href="{% static 'img/instagram_black.png' %}">
 </head>
 <body class="reg">
 
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="">
-        <img src="{% static 'img/instagram_black.png' %}" width="64" height="64">
-      </a>
-  
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a href="{% url 'index' %}" class="navbar-item">
-          <i class="material-icons">home</i>
-          Home
+  <div class="navbar fixed-top bg-white mb-5">
+    <nav class="container">
+      <div class="navbar-brand mr-5">
+        <a class="navbar-item" href="">
+          <img src="https://i.pinimg.com/originals/57/6c/dd/576cdd470fdc0b88f4ca0207d2b471d5.png" width="104" height="104">
         </a>
-  
-        <a class="navbar-item">
-          <i class="material-icons">explore</i>
-          Explore
+    
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-  
-        <a href="{% url 'show-notifications' %}" class="navbar-item">
-          <i class="material-icons">notifications</i>
-          Notifications
-          {% if count_notifications %}
-            <span class="badge">{{ count_notifications }}</span>
-          {% endif %}
-        </a>
-  
-        <a href="{% url 'inbox' %}" class="navbar-item">
-          <i class="material-icons">inbox</i>
-          Inbox
-          {% if directs_count %}
-          <span class="badge">{{ directs_count }}</span>
-          {% endif %}
-        </a>
-  
-        <a href="{% url 'profile' request.user %}" class="navbar-item">
-          <i class="material-icons">face</i>
-          Profile - <strong>{{ request.user }}</strong>
-        </a>
-  
-          <a href="{% url 'newpost' %}" class="navbar-item">
-          <i style="color: green;" class="material-icons">perm_media</i>
-           <strong>New Post</strong>
-        </a>
-  
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Settings
-          </a>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              Change password
-            </a>
-            <a class="navbar-item">
-              Contact
-            </a>
-            <a class="navbar-item">
-              Report an issue
-            </a>
-            <hr class="navbar-divider">
-            <a href="{% url 'logout' %}" class="navbar-item">
-              Log out
-            </a>
-          </div>
-        </div>
       </div>
+
+      <form class="mb-0 h1 ml-auto mr-auto" id="searchform" action="{% url 'usersearch' %}" >
+        <input class="form-control text-center d-none d-md-block" name="q" autocapitalize="none" type="text" placeholder="Search" results="0" value="{{ request.GET.q }}">
+        <i class="spinner "></i>
+    </form>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="{% url 'index' %}" class="navbar-item">
+            <i class="fas fa-home"></i>
+          </a>
+    
+          <a class="navbar-item">
+            <i class="far fa-compass"></i>
+          </a>
+    
+          <a href="{% url 'show-notifications' %}" class="navbar-item">
+            <i class="far fa-heart"></i>
+            {% if count_notifications %}
+              <span class="badge">{{ count_notifications }}</span>
+            {% endif %}
+          </a>
+    
+          <a href="{% url 'inbox' %}" class="navbar-item">
+            <i class="far fa-paper-plane "></i>
+            {% if directs_count %}
+            <span class="badge">{{ directs_count }}</span>
+            {% endif %}
+          </a>
+    
+          <a href="{% url 'profile' request.user %}" class="navbar-item">
+            <i class="far fa-user-circle"></i>
+          </a>
+    
+            <a href="{% url 'newpost' %}" class="navbar-item">
+              <i class="fas fa-plus-circle"></i>
+          </a>
+    
+          <!-- <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Settings
+            </a>
+    
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                Change password
+              </a>
+              <a class="navbar-item">
+                Contact
+              </a>
+              <a class="navbar-item">
+                Report an issue
+              </a>
+              <hr class="navbar-divider">
+              <a href="{% url 'logout' %}" class="navbar-item">
+                Log out
+              </a>
+            </div>
+          </div> --> 
+        </div>
+    
+      </div>
+    </nav>
+  </div>
   
-    </div>
-  </nav>
 {% include 'navbar.html' %}
 {% block content %}
 
 {% endblock %}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

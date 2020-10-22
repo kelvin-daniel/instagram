@@ -9,6 +9,7 @@ from authy.models import Profile
 from django.contrib.auth.decorators import login_required
 
 from django.urls import reverse
+from django.contrib.auth.models import User
 from comment.models import Comment
 from comment.forms import CommentForm
 
@@ -22,10 +23,9 @@ def index(request):
 
         for post in posts: 
             group_ids.append(post.post_id)
-            
-        post_items = Post.objects.filter(id__in=group_ids).all().order_by('-posted')		
-		
-        return render(request, 'index.html',{'post_items': post_items})
+        users=User.objects.all()   
+        post_items = Post.objects.filter(id__in=group_ids).all().order_by('-posted')
+        return render(request, 'index.html',{'post_items': post_items, 'users': users})
 
 def PostDetails(request, post_id):
 	post = get_object_or_404(Post, id=post_id)

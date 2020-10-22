@@ -9,7 +9,7 @@
   <div class="column is-offset-one-fifth">
 
 
-<div class="field has-addons">
+<!-- <div class="field has-addons">
 <form>
   <div class="control">
     <input class="input is-large" name="q" type="text" placeholder="Search users..." value="{{ request.GET.q }}">
@@ -18,32 +18,34 @@
   	<button type="submit" class="button is-success">Search</button>
   </div>
   </form>
-</div>
+</div> -->
 
 
 </div>
 </div>
 
-<div class="column is-one-quarter">
+<div style="padding-left: 150px;" class="container columns text-center is-half is-mobile">
 
 {% for user in users %}
-<div class="box">
+<div class="ml-5 container is-mobile text-center">
   <article class="media">
-    <div class="media-left">
-      <figure class="image is-64x64">
-          {% if user.profile.picture %}
-            <img src="{{ user.profile.picture.url }}" alt="Placeholder image">
-          {% else %}
-            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-          {% endif %}
+    <div class="media-center text-center">
+      <figure class="image" style="padding-left: 150px;">
+        {% if post_item.user.profile.picture %}
+          <img src="{{ post_item.user.profile.picture.url }}" class="is-rounded" style="height: 42px; width: 42px" alt="">
+        {% else %}
+          <img src="https://bulma.io/images/placeholders/96x96.png" class="is-rounded" style="height: 42px; width: 42px" alt="">
+        {% endif %}
       </figure>
     </div>
     <div class="media-content">
       <div class="content">
-        <p>
-          <strong>{{ user.profile.first_name }} {{ user.profile.last_name }}</strong><small>@{{ user.username }}</small>
-        </p>
-        <a href="{% url 'newconversation' user.username %}" class="button is-info">Send a message!</a>
+        <a href="{% url 'profile' request.user %}">
+          <p>
+            <strong>{{ user.profile.first_name }} {{ user.profile.last_name }}</strong><small>@{{ user.username }}</small>
+          </p>
+        </a>
+        <a href="{% url 'newconversation' user.username %}" class="btn btn-info btn-sm">message</a>
       </div>
     </div>
   </article>

@@ -1,126 +1,108 @@
 {% extends 'base.html' %}
-
 {% load static %}
 {% load humanize %}
+{% load crispy_forms_tags %}
 {% block content %}
-
-<!-- style="overflow-x: scroll;"  -->
-
-<div class="columns is-mobile is-centered">
-  <div class="mt-4 p-2">
-    <figure class="image" style="height: 42px; width: 42px;">
-      <img class="is-rounded" src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f47d4de7637290765bce495%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D1398%26cropX2%3D3908%26cropY1%3D594%26cropY2%3D3102" alt="">
-    </figure>
-    <div class="media-content">
-      <small class="text-center">elon_musk</small>
-    </div>
-  </div>
-
-  <div class="mt-4 p-2">
-    <figure class="image" style="height: 42px; width: 42px;">
-      <img class="is-rounded" src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f47d4de7637290765bce495%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D1398%26cropX2%3D3908%26cropY1%3D594%26cropY2%3D3102" alt="">
-    </figure>
-    <div class="media-content">
-      <small class="text-center">elon_musk</small>
-    </div>
-  </div>
-
-  <div class="mt-4 p-2">
-    <figure class="image is-128x128" style="height: 42px; width: 42px;">
-      <img class="is-rounded" src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f47d4de7637290765bce495%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D1398%26cropX2%3D3908%26cropY1%3D594%26cropY2%3D3102" alt="">
-    </figure>
-    <div class="media-content">
-      <small class="text-center">elon_musk</small>
-    </div>
-  </div>
-
-  <div class="mt-4 p-2">
-    <figure class="image is-128x128" style="height: 42px; width: 42px;">
-      <img class="is-rounded" src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f47d4de7637290765bce495%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D1398%26cropX2%3D3908%26cropY1%3D594%26cropY2%3D3102" alt="">
-    </figure>
-    <div class="media-content">
-      <small class="text-center">elon_musk</small>
-    </div>
-  </div>
-
-  <div class="mt-4 p-2">
-    <figure class="image is-128x128" style="height: 42px; width: 42px;">
-      <img class="is-rounded" src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f47d4de7637290765bce495%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D1398%26cropX2%3D3908%26cropY1%3D594%26cropY2%3D3102" alt="">
-    </figure>
-    <div class="media-content">
-      <small class="text-center">elon_musk</small>
-    </div>
-  </div>
-
-  <div class="mt-4 p-2">
-    <figure class="image is-128x128" style="height: 42px; width: 42px;">
-      <img class="is-rounded" src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f47d4de7637290765bce495%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D1398%26cropX2%3D3908%26cropY1%3D594%26cropY2%3D3102" alt="">
-    </figure>
-    <div class="media-content">
-      <small class="text-center">elon_musk</small>
-    </div>
-  </div>
-</div>
-
-<div class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-
-  </div>
-  <button class="modal-close is-large" aria-label="close"></button>
-</div>
-
-
-{% if post_items %}
-      <div class="columns is-mobile is-centered">
-        <div class="column is-half">
-      {% for post_item in post_items %}
-        <div class="card">
-          <div class="card-header" style="height: 60px;">
-            <div class="media-left">
-              <figure class="image is-48x48">
-                {% if post_item.user.profile.picture %}
-                  <img src="{{ post_item.user.profile.picture.url }}" class="is-rounded" style="height: 42px; width: 42px" alt="Placeholder image">
-                {% else %}
-                  <img src="https://bulma.io/images/placeholders/96x96.png" class="is-rounded" style="height: 42px; width: 42px" alt="Placeholder image">
-                {% endif %}
-              </figure>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+          {% if post_items %}
+          {% for post_item in post_items %}
+          <div class="card mb-5">
+                <div class="card-header" style="height: 60px;">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      {% if post_item.user.profile.picture %}
+                        <img src="{{ post_item.user.profile.picture.url }}" class="is-rounded" style="height: 42px; width: 42px" alt="">
+                      {% else %}
+                        <img src="https://bulma.io/images/placeholders/96x96.png" class="is-rounded" style="height: 42px; width: 42px" alt="">
+                      {% endif %}
+                    </figure>
+                  </div>
+                  <a href="{% url 'profile' request.user %}">
+                    <p class="subtitle is-6 pt-3">{{ post_item.user.username }}</p>
+                  </a>
+                </div>
+                <div class="card-image">
+                  <a href="{{ post_item.get_absolute_url }}"><img src="{{ post_item.picture.url }}" alt="Placeholder image"></a> 
+                </div>
+                <div class="card-content">
+                  <div class="media-content">
+                    <div class="media-left">
+                      <a href="{% url 'postlike' post_item.id %}"><i class="material-icons has-text-danger">favorite</i></a>
+                    </div>
+                    <div class="media-left">
+                      <small>{{ post_item.likes }} Likes</small> 
+                    </div>
+                    <div class="media-content">
+                        <small><strong>{{ post_item.user.username }}</strong> {{ post_item.caption }} {% for tag in post_item.tags.all %}<a href="{{ tag.get_absolute_url }}">#{{ tag }}</a>{% endfor %}</small>
+                    </div>
+                    <div class="media-left">
+                        <small style="font-size: 11px; color: rgb(167, 160, 160);">{{ post_item.posted|naturaltime|title }}</small>
+                    </div>
+                  </div>
+                </div>
             </div>
-            <p class="subtitle is-6 pt-3">{{ post_item.user.username }}</p>
-          </div>
-        <div class="card-image">
-          <figure class="image is-4by3">
-            <a href="{{ post_item.get_absolute_url }}"><img src="{{ post_item.picture.url }}" alt="Placeholder image"></a> 
-          </figure>
+            {% endfor %}
         </div>
-        
-        <div class="card-content">
-          <div class="media-content">
-            <div class="media-left">
-              <a href="{% url 'postlike' post_item.id %}"><i class="material-icons has-text-danger">favorite</i></a>
+        <div class="col-md-4 mt-4 userinfo">
+            <div class="row">
+                <div class="col-md-3 ml-2">
+                  <figure class="image is-48x48">
+                    {% if profile.picture %}
+                      <img class="rounded-circle account-img" src="{{ profile.picture.url }}">
+                    {% else %}
+                      <img class="rounded-circle account-img" src="https://bulma.io/images/placeholders/256x256.png">
+                    {% endif %}
+                  </figure>
+                </div>
+                    <a href="{% url 'profile' request.user %}">
+                      <p class="subtitle is-6 pt-3">{{ profile.user }}</p></a> 
+                      <br>
+                    <span class=" inname">
+                      {% if profile.first_name %}{{ profile.first_name }} {{ profile.last_name }} {% endif %}
+                    </span>
             </div>
-            <div class="media-left">
-              <small>{{ post_item.likes }} Likes</small> 
-            </div>
-            <div class="media-content">
-            <small><strong>{{ post_item.user.username }}</strong> {{ post_item.caption }} {% for tag in post_item.tags.all %}<a href="{{ tag.get_absolute_url }}">#{{ tag }}</a>{% endfor %}</small>
-            </div>
-            <div class="media-left">
-              <small style="font-size: 11px; color: rgb(167, 160, 160);">{{ post_item.posted|naturaltime|title }}</small>
-            </div>
-            </div>
-        </div>
-      </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="card mt-4 mr-2 ml-2">
+                        <div class="card-title text-secondary mt-2 mr-2 ml-2 ">Suggestions</div>
+                        {% for user in users %}
+                        <div class="container" style="overflow-y: scroll;">
+                            <div class="row">
+                                <div class="col-md-2 mr-3 mt-1 mb-2">
+                                  <figure class="media-left image is-48x48">
+                                    {% if profile.picture %}
+                                      <img class="rounded-circle account-img" src="{{ profile.picture.url }}">
+                                    {% else %}
+                                      <img class="rounded-circle account-img" src="https://bulma.io/images/placeholders/256x256.png">
+                                    {% endif %}
+                                  </figure>
+                                </div>
+                                <div class="col-md-6 mr-2 mt-2">
+                                    <span><a href="{% url 'profile' request.user %}">
+                                      <p class="subtitle is-6 pt-3">{{ post_item.user.username }}</p>
+                                    </a></span>
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                            </div>
+                        </div>
 
-      <br>
-{% endfor %}
+                        {% endfor %}
 {% else %}
 <p class="text-center">
   Start following other <a href="search">users</a> to see their posts. </br> </br>
-  Suggested user: <a href="/user/peterzernia">peterzernia</a>
+  Suggested user: <a href="/user/tay">tay</a>
 <p>
 {% endif %}
-</div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

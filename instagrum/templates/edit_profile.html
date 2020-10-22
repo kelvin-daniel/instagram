@@ -12,45 +12,45 @@
 
     <form method="post" enctype="multipart/form-data" action="" role="form">
       {% csrf_token %}
-    <h3 class="title is-3">Edit Profile</h3>
+    <h3 class="label">Edit Profile</h3>
 
           <div class="field">
-              <label class="label is-medium">Choose your picture</label>
+              <label class="label">Choose your picture</label>
               <div class="file is-boxed">
                 {{ form.picture }}
               </div>
           </div>
 
           <div class="field">
-              <label class="label is-medium">First name</label>
+              <label class="label">First name</label>
               <div class="control">
                 {{ form.first_name }}
               </div>
           </div>
 
           <div class="field">
-              <label class="label is-medium">Last name</label>
+              <label class="label">Last name</label>
               <div class="control">
                 {{ form.last_name }}
               </div>
           </div>
 
           <div class="field">
-              <label class="label is-medium">Location</label>
+              <label class="label">Location</label>
               <div class="control">
                 {{ form.location }}
               </div>
           </div>
 
           <div class="field">
-              <label class="label is-medium">website url</label>
+              <label class="label">website url</label>
               <div class="control">
                 {{ form.url }}
               </div>
           </div>
 
           <div class="field">
-              <label class="label is-medium">BIO</label>
+              <label class="label">Bio</label>
               <div class="control">
                 {{ form.profile_info }}
               </div>
@@ -65,7 +65,7 @@
 
       <div class="field">
       <p class="control">
-        <button type="submit" value="login" class="button is-success">
+        <button type="submit" value="login" class="btn btn-sm btn-info">
           Update
         </button>
       </p>
