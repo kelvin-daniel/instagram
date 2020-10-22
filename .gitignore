@@ -1,0 +1,5 @@
+.env/
+.env
+env.sh
+__pycache__/
+start.sh

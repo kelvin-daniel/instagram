@@ -1,0 +1,17 @@
+asgiref==3.2.10
+certifi==2020.6.20
+cloudinary==1.22.0
+confusable-homoglyphs==3.2.0
+Django==3.1.2
+django-bootstrap==0.2.4
+django-crispy-forms==1.9.2
+django-registration==3.1.1
+gunicorn==20.0.4
+Pillow==8.0.0
+pkg-resources==0.0.0
+psycopg2==2.8.6
+pytz==2020.1
+six==1.15.0
+sqlparse==0.4.1
+urllib3==1.25.11
+whitenoise==5.2.0

@@ -2,7 +2,7 @@
 Django app to clone instagram functionality.
 
 ## Deployed Site Link
-[Picsabay](https://instagram.herokuapp.com/)
+[Instagram](https://instagram.herokuapp.com/)
 username: admin
 pass: admin
 
