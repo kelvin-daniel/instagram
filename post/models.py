@@ -2,10 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save, post_delete
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
 from notifications.models import Notification
 import uuid
-# Create your models here.
 
 #upload file to media_root /user_id/filename
 def user_directory_path(instance, filename):
@@ -34,7 +34,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-	picture =  models.ImageField(upload_to=user_directory_path, verbose_name='Picture', null=False)
+	picture =  CloudinaryField('image')
 	caption = models.TextField(max_length=1500, verbose_name='Caption')
 	posted = models.DateTimeField(auto_now_add=True)
 	tags = models.ManyToManyField(Tag, related_name='tags')
