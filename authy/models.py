@@ -35,9 +35,7 @@ class Profile(models.Model):
 		SIZE = 250, 250
 
 		if self.picture:
-			pic = Image.open(self.picture.path)
-			pic.thumbnail(SIZE, Image.LANCZOS)
-			pic.save(self.picture.path)
+			pic = CloudinaryField('image', SIZE, Image.LANCZOS)
 
 	def __str__(self):
 		return self.user.username

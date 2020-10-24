@@ -6,6 +6,7 @@ from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
 from notifications.models import Notification
 import uuid
+# Create your models here.
 
 #upload file to media_root /user_id/filename
 def user_directory_path(instance, filename):
@@ -34,7 +35,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-	picture =  CloudinaryField('image')
+	picture =  models.ImageField(upload_to='images/', verbose_name='Picture', null=False)
 	caption = models.TextField(max_length=1500, verbose_name='Caption')
 	posted = models.DateTimeField(auto_now_add=True)
 	tags = models.ManyToManyField(Tag, related_name='tags')
@@ -45,8 +46,8 @@ class Post(models.Model):
 	def get_absolute_url(self):
 		return reverse('postdetails', args=[str(self.id)])
 
-	# def __str__(self):
-	# 	return str(self.id)
+	def __str__(self):
+		return str(self.id)
 
 
 class Follow(models.Model):
