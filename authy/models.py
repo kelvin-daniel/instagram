@@ -27,7 +27,7 @@ class Profile(models.Model):
 	profile_info = models.TextField(max_length=150, null=True, blank=True)
 	created = models.DateField(auto_now_add=True)
 	favorites = models.ManyToManyField(Post)
-	picture = CloudinaryField('image')
+	picture = CloudinaryField('image', null=True)
     
 	#to resize images on the server side
 	def save(self, *args, **kwargs):
