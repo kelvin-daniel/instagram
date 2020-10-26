@@ -1,3 +1,7 @@
+body{
+    background-color: rgb(196, 192, 192);
+}
+
 .badge {
 	position: absolute;
 	top: 1px;

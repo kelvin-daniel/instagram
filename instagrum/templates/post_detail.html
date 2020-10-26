@@ -4,20 +4,34 @@
 {% load humanize %}
 
 {% block content %}
-
+{% include 'navbar.html' %}
   <div class="container is-mobile is-centered">
   <div class="column">
-
-
-      <div class="card">
+  <div class="card">
   <div class="card-image">
     <figure class="image">
-      <img class="pr-5 pl-5" style="height: 80vh; width: 100%;" src="{{ post.picture.url }}" alt="Placeholder image">
+      <img class="pr-5 pl-5" style="height: 400px; width: 100%;" src="{{ post.picture.url }}" alt="Placeholder image">
     </figure>
+  </div>
+  <div class="row mt-2 ml-5">
+    <div class="media-right">
+      <a href="{% url 'postlike' post.id %}"><i class="material-icons has-text-danger">favorite</i></a>
+      <p>{{ post.likes }} Likes</p>  
+    </div>
+    {% if favorited is True %}
+    <div class="media-right">
+      <a href="{% url 'postfavorite' post.id %}"><i class="material-icons has-text-danger">save_alt</i></a>
+      <p>Remove Post</p> 
+    </div>
+    {% else %}
+    <div class="media-right">
+      <a href="{% url 'postfavorite' post.id %}"><i class="material-icons has-text-success">save_alt</i></a>
+      <p>Save Post</p> 
+    </div>
+    {% endif %}
   </div>
   <div class="card-content">
     <div class="media">
-
       <div class="media-left">
         <figure class="image">
           {% if post.user.profile.picture %}
@@ -40,38 +54,11 @@
       <p>{% for tag in post.tags.all %}<a href="{{ tag.get_absolute_url }}">#{{ tag }}</a>{% endfor %}</p>
       <br>
       <strong><small>{{ post.posted|naturaltime }}</small></strong>
-      
-
       </div>
-    
-
-    {% if favorited is True %}
-    <div class="media-right">
-      <a href="{% url 'postfavorite' post.id %}"><i class="material-icons has-text-danger">save_alt</i></a>
-      <p>Remove Post</p> 
     </div>
-    {% else %}
-
-    <div class="media-right">
-      <a href="{% url 'postfavorite' post.id %}"><i class="material-icons has-text-success">save_alt</i></a>
-      <p>Save Post</p> 
-    </div>
-
-    {% endif %}
-
-    <div class="media-right">
-      <a href="{% url 'postlike' post.id %}"><i class="material-icons has-text-danger">favorite</i></a>
-      <p>{{ post.likes }} Likes</p>  
-    </div>
-    
-
-    </div>
-
   </div>
 </div>
-
 <div class="card-content">
-
 {% for comment in comments %}
 <article class="media">
   <figure class="media-left">

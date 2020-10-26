@@ -3,32 +3,29 @@
 {% load static %}
 
 {% block content %}
+{% include 'navbar.html' %}
 <div class="container">
   {% block banner %}
-<section class="hero is-primary">
-  <div class="hero-body">
+<section class="bg-primary">
+  <div class="p-3">
     <div class="container">
-      <h4 class="text-dark">
+      <h4 class="text-dark font-weight-bolder">
         #{{ tag.title }}
       </h4>
     </div>
   </div>
 </section>
 {% endblock %}
-      <div class="columns is-mobile is-multiline is-centered">
-      
-
+<div class="columns is-mobile is-multiline is-centered mt-2">
 {% for post in posts %}
-      <div class="column is-one-quarter">
-        <div class="box">
-      <figure class="image is-256x256">
-        <a href="{{ post.get_absolute_url }}"><img src="{{ post.picture.url }}" alt="Image"></a>
-      </figure>
+    <div class="column is-half">
+      <div class="card">
+        <figure class="image is-256x256">
+          <a href="{{ post.get_absolute_url }}"><img class="thumbnail" src="{{ post.picture.url }}" alt="Image"></a>
+        </figure>
+      </div>
     </div>
-      </div>
 {% endfor %}
-
-      </div>
-
+  </div>
 </div>
 {% endblock %}

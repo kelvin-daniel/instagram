@@ -37,8 +37,12 @@
                 <i class="fas fa-camera-retro"></i>
             </a>
 
-            <a href="{% url 'profile' request.user%}"class="text-dark">
+            <a href="{% url 'profile' request.user%}"class="pr-4 text-dark">
             <i class="far fa-user-circle"></i>
+            </a>
+
+            <a class="text-dark" href="{% url 'usersearch' %}">
+            <i class="fas fa-search"></i>
             </a>
         </span>
     </nav>

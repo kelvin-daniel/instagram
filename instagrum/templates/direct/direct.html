@@ -4,7 +4,7 @@
 {% load static %}
 
 {% block content %}
-
+{% include 'navbar.html' %}
 <div class="container">
   <div class="columns is-mobile">
   
@@ -15,7 +15,7 @@
       Messages
       </h4>
     <ul style="overflow-y: scroll; height: 500px" class="menu-list">
-  
+
   {% for message in messages %}
   
   <a class="{% if active_direct == message.user.username %}is-active{% endif %}" href="{% url 'directs' message.user.username %}">
@@ -51,7 +51,7 @@
   </div>
   </a>
   {% endfor %}
-  
+
     </ul>
     </aside>
   <br>
@@ -62,7 +62,7 @@
   <div class="col-8">
   
   <div style="overflow-y: scroll; height: 500px">
-  
+{% if messages %}  
   {% for direct in directs %}
   <div class="container">
     <article class="media">
@@ -80,8 +80,12 @@
     </article>
   </div>
   {% endfor %}
-  
-  
+  {% else %}
+  <p class="text-center mt-5 pt-5 font-weight-bolder">
+    You have no messages yet
+  <p>
+  {% endif %}  
+
   </div>
   </div>
   </div>
